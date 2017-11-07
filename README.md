@@ -15,37 +15,17 @@
 ## Ansible Scripts
 
 #### 1. Checkbox.io
-   [AWS creation](https://github.ncsu.edu/ppfirake/DevOps_Project/blob/DevOps_Milestone3/awscreation.yml) <br>
-   [AWS production](https://github.ncsu.edu/ppfirake/DevOps_Project/blob/DevOps_Milestone3/Production_CheckboxIO.yml)
+   [AWS creation](https://github.com/sohankunkerkar/DevOps-Milestone-3/blob/master/awscreation.yml) <br>
+   [AWS production](https://github.com/sohankunkerkar/DevOps-Milestone-3/blob/master/Production_CheckboxIO.yml)<br>
    
 #### 2. iTrust
-   [Jenkins Setup](https://github.ncsu.edu/ppfirake/DevOps_Project/blob/DevOps_Milestone3/iTrust/Jenkins_setup_githook/buildJenkins.yaml)
-   <br>[Provision and deploy](https://github.ncsu.edu/ppfirake/DevOps_Project/blob/DevOps_Milestone3/iTrust/Production_config_deploy_rolling/provision.yml)
-  <br> [Rolling update](https://github.ncsu.edu/ppfirake/DevOps_Project/blob/DevOps_Milestone3/iTrust/Production_config_deploy_rolling/tomcat.yml)
-   
-
-## Screencasts: 
-
-1. Checkbox.io
-
-      [Deploy](https://youtu.be/Iigk39zlQJo)
-         
-      [Load Balancer](https://www.youtube.com/watch?v=Q0oS2Di4xp0&t=1s)
-         
-      [Feature Flag](https://youtu.be/gl2EIgTJtRs)
-      
-      [Canary](https://www.youtube.com/watch?v=SUPKaNurG-Q)
-
-2. iTrust
-         - [Deployment & Rolling Updates](https://youtu.be/0JIn7IL5PU8)
-
-
+   [Jenkins Setup](https://github.com/sohankunkerkar/DevOps-Milestone-3/blob/master/iTrust/Jenkins_setup_githook/buildJenkins.yaml)
+   <br>[Provision and deploy](https://github.com/sohankunkerkar/DevOps-Milestone-3/blob/master/iTrust/Production_config_deploy_rolling/provision.yml)
+  <br> [Rolling update](https://github.com/sohankunkerkar/DevOps-Milestone-3/blob/master/iTrust/Production_config_deploy_rolling/tomcat.yml)
 
 ## For Checkbox.io 
 
 ### Instructions for Deploying Checkbox.io :
-
-Repository used for Checkbox.io is [repo](https://github.com/pranav-firake/cb)
 
 Dependencies : NPM, pip, nginx, node.js, mongodb
 NPM modules : express, validator, archiver, json5, jade, emailjs, cors, mongodb, underscore
@@ -54,16 +34,16 @@ VMs : 2 AWS instances :
 1. Host (for jenkins server)
 2. Prod (for production environment)
 
-![Image for Provision](https://github.ncsu.edu/ppfirake/DevOps_Project/blob/DevOps_Milestone3/archi.png)
+![Image for Provision](https://github.com/sohankunkerkar/DevOps-Milestone-3/blob/master/archi.png)
 
 
 ### Steps for Checkbox.io DEPLOYMENT: 
 
-1. Created AWS host machines. We used (https://github.ncsu.edu/ppfirake/DevOps_Project/blob/DevOps_Milestone3/awscreation.yml) for creating the aws instance as Host.
+1. Created AWS host machines. We used (https://github.com/sohankunkerkar/DevOps-Milestone-3/blob/master/awscreation.yml) for creating the aws instance as Host.
 2. Run ansible playbook yaml file. This file will install necessary dependencies and would setup jenkins server as aws host
 3. On AWS Host : At port 8080 there will be jenkins running. Here we will create on job for deploying the checkbox.io to prod (another AWS instance serving as production). we have used git hook for it. git hook will build the application and deploy the application on Production (prod).
 
-4. Production yml (https://github.ncsu.edu/ppfirake/DevOps_Project/blob/DevOps_Milestone3/Production_CheckboxIO.yml) file will address prod AWS instance and it will serve for 
+4. Production yml (https://github.com/sohankunkerkar/DevOps-Milestone-3/blob/master/Production_CheckboxIO.yml) file will address prod AWS instance and it will serve for 
   
    (1) Install required dependencies 
 
@@ -96,7 +76,7 @@ We implemented load balancer using Balancer.js().
 We are using 2 files one with stable IPs and other with canary IP. 
 On local we are mirroring the traffic of application. So we are balancing the load through redirecting servers by toggling their callings. So load is balanced.
 
-![Architecture](https://github.ncsu.edu/ppfirake/DevOps_Project/blob/DevOps_Milestone3/load.png)
+![Architecture](https://github.com/sohankunkerkar/DevOps-Milestone-3/blob/master/load.png)
 
 Steps : 
 
@@ -107,13 +87,11 @@ node balance.js
 
 Files :
 
-1. Load balancer : (https://github.ncsu.edu/ppfirake/DevOps_Project/blob/DevOps_Milestone3/Load%20balancer%20%26%20Canary%20Releease/balance.js)
+1. Load balancer : (https://github.com/sohankunkerkar/DevOps-Milestone-3/blob/master/Load%20balancer%20%26%20Canary%20Releease/balance.js)
 
 2. Server IP files : 
 
-    [Folder](https://github.ncsu.edu/ppfirake/DevOps_Project/tree/DevOps_Milestone3/Load%20balancer%20%26%20Canary%20Releease)
-        
-3. Screencast : [Load Balancer](https://www.youtube.com/watch?v=Q0oS2Di4xp0&t=1s)
+    [Folder](https://github.com/sohankunkerkar/DevOps-Milestone-3/tree/master/Load%20balancer%20%26%20Canary%20Releease)
 
 
 ## FEATURE FLAGS IN CHECKBOX :
@@ -123,12 +101,12 @@ We used redis server master slave sentinel for toggling feature flags on and off
 Redis-server setup : Redis Master-slave connection using [script](https://github.com/DavidWittman/ansible-redis)
 We used Upload functionality for feature flag and will be toggling it on/off according to the feature flag set true or false.
 
-![Feature Flag](https://github.ncsu.edu/ppfirake/DevOps_Project/blob/DevOps_Milestone3/FeatureFlag.png)
+![Feature Flag](https://github.com/sohankunkerkar/DevOps-Milestone-3/blob/master/FeatureFlag.png)
 
 
 Files :
 
-1. Redis [redis](https://github.ncsu.edu/ppfirake/DevOps_Project/tree/DevOps_Milestone3/Feature%20Flag/Redis)
+1. Redis [redis](https://github.com/sohankunkerkar/DevOps-Milestone-3/tree/master/Feature%20Flag/Redis)
 1. Feature flag implementation
 
 Code snippet used for turning ON/OFF the feature- upload.
@@ -156,8 +134,6 @@ try{
 ```
 
 
-2. Screencast : [Feature Flag](https://youtu.be/gl2EIgTJtRs)
-
 ## CANARY RELEASE IN CHECKBOX :
 
 We implemented canary releasing with extending the code of loadbalancer.js.
@@ -165,7 +141,7 @@ When anary.js, same as load balancer, traffic will be balanced between servers.
 When alert is raised, canary server will stop if Alert is raised.
 
 
-![Canary](https://github.ncsu.edu/ppfirake/DevOps_Project/blob/DevOps_Milestone3/canary.png)
+![Canary](https://github.com/sohankunkerkar/DevOps-Milestone-3/blob/master/canary.png)
 
 Steps : 
 
@@ -177,13 +153,12 @@ node canary.js
 Files :
 
 1. Canary :
-   [canary.js](https://github.ncsu.edu/ppfirake/DevOps_Project/blob/DevOps_Milestone3/Load%20balancer%20%26%20Canary%20Releease/canary.js)
+   [canary.js](https://github.com/sohankunkerkar/DevOps-Milestone-3/blob/master/Load%20balancer%20%26%20Canary%20Releease/canary.js)
 
 2. Server IP files : 
         - stableIPAddress
         - canaryIP
 
-3. Screencast : [Canary](https://www.youtube.com/watch?v=SUPKaNurG-Q)
 
 
 
@@ -204,7 +179,7 @@ VMs : 2 AWS instances :
 
 Initially, we have repeated the process for creating the Jenkins server with the build job for iTrust from the milestone 2. Just that the host would now be an aws instance.
 
-1. We used [provision.yaml](https://github.ncsu.edu/ppfirake/DevOps_Project/blob/DevOps_Milestone3/iTrust/Production_config_deploy_rolling/provision.yml) which would run in the build job after the build is successful for creating the aws instance as Host. 
+1. We used [provision.yaml](https://github.com/sohankunkerkar/DevOps-Milestone-3/blob/master/iTrust/Production_config_deploy_rolling/provision.yml) which would run in the build job after the build is successful for creating the aws instance as Host. 
 2.  On AWS Host : At port 8080 there will be jenkins running. Here we can see that build job is created but the build will only be triggered by a git hook when a push is made in the repo. The git hook will trigger the build and deploy the application on Production (prod).
 
 3. Provison.yml file will address prod AWS instance and it will serve for 
@@ -236,4 +211,4 @@ Initially, we have repeated the process for creating the Jenkins server with the
 
 Similarly, we have deployed 4 other instances of iTrust. Now, we've made a change in the Jenkins build definition where it won't create instances and configure them but rather would implement the rolling update strategy of **deploying the iTrust to the production instances in a way only one instance would be decomissioned to make the update while the rest 4 are operational.** This is done again, by a git hook which is triggered on a push to the source repo.
 
-The ansible script is [here](https://github.ncsu.edu/ppfirake/DevOps_Project/blob/DevOps_Milestone3/iTrust/Production_config_deploy_rolling/tomcat.yml)
+The ansible script is [here](https://github.com/sohankunkerkar/DevOps-Milestone-3/blob/master/iTrust/Production_config_deploy_rolling/tomcat.yml)
